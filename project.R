@@ -49,3 +49,22 @@ for (i in 1 : MethodCtr)
 #All Models boxplot
 allModels=resamples(list(KNearestNeighbor=m1,NeuralNetwork=m2, Adaboost= m3, XGBoost= m4, SVM= m5, MultiPerceptron= m6, BaggedAdaboost= m7))
 bwplot(allModels,scales=list(relation="free"))
+
+
+ggcorr(myData[,c(2:12)], name = "correlation-value", geom = "circle" ,label = TRUE, max_size = 10,
+       hjust = 1.0,
+      # angle = -45,
+       size = 3) + ggtitle("Mean columns") + 
+  theme(plot.title = element_text(hjust = 0.5, face= "bold"), text = element_text(size=8))
+
+ggcorr(myData[,c(13:22)], name = "correlation-value", geom = "circle" ,label = TRUE, max_size = 10,
+       hjust = 1.0,
+      # angle = -45,
+       size = 3) + ggtitle("Standard error columns") + 
+  theme(plot.title = element_text(hjust = 0.5, face= "bold"), text = element_text(size=8))
+
+ggcorr(myData[,c(23:32)], name = "correlation-value", geom = "circle" ,label = TRUE, max_size = 10,
+       hjust = 1.0,
+       # angle = -45,
+       size = 3) + ggtitle("Worst columns") + 
+  theme(plot.title = element_text(hjust = 0.5, face= "bold"), text = element_text(size=8))
